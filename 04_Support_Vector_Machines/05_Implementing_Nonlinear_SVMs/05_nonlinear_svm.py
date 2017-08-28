@@ -40,7 +40,7 @@ prediction_grid = tf.placeholder(shape=[None, 2], dtype=tf.float32)
 b = tf.Variable(tf.random_normal(shape=[1,batch_size]))
 
 # Gaussian (RBF) kernel
-gamma = tf.constant(-25.0)
+gamma = tf.constant(-100.0)
 sq_dists = tf.multiply(2., tf.matmul(x_data, tf.transpose(x_data)))
 my_kernel = tf.exp(tf.multiply(gamma, tf.abs(sq_dists)))
 
@@ -106,7 +106,7 @@ plt.contourf(xx, yy, grid_predictions, cmap=plt.cm.Paired, alpha=0.8)
 plt.plot(class1_x, class1_y, 'ro', label='I. setosa')
 plt.plot(class2_x, class2_y, 'kx', label='Non setosa')
 plt.title('Gaussian SVM Results on Iris Data')
-plt.xlabel('Pedal Length')
+plt.xlabel('Petal Length')
 plt.ylabel('Sepal Width')
 plt.legend(loc='lower right')
 plt.ylim([-0.5, 3.0])

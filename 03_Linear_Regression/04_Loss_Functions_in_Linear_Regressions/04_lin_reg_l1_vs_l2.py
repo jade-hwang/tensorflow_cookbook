@@ -22,7 +22,7 @@ y_vals = np.array([y[0] for y in iris.data])
 
 # Declare batch size and number of iterations
 batch_size = 25
-learning_rate = 0.4 # Will not converge with learning rate at 0.4
+learning_rate = 0.05 # Will not converge with learning rate at 0.4
 iterations = 50
 
 # Initialize placeholders

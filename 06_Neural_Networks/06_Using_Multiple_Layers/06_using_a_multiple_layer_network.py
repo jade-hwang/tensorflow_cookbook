@@ -181,3 +181,17 @@ plt.legend(loc='upper right')
 plt.xlabel('Generation')
 plt.ylabel('Loss')
 plt.show()
+
+actuals = np.array([x[0] for x in birth_data])
+test_actuals = actuals[test_indices]
+train_actuals = actuals[train_indices]
+test_preds = [x[0] for x in sess.run(final_output, feed_dict={x_data: x_vals_test})]
+train_preds = [x[0] for x in sess.run(final_output, feed_dict={x_data: x_vals_train})]
+test_preds = np.array([1.0 if x < 2500.0 else 0.0 for x in test_preds])
+train_preds = np.array([1.0 if x < 2500.0 else 0.0 for x in train_preds])
+
+test_acc = np.mean([x==y for x,y in zip(test_preds, test_actuals)])
+train_acc = np.mean([x==y for x,y in zip(train_preds, train_actuals)])
+print('On predicting the category of low birthweight from regression output (<2500g):')
+print('Test Accuracy: {}'.format(test_acc))
+print('Train Accuracy: {}'.format(train_acc))

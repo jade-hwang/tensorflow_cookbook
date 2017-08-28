@@ -55,8 +55,8 @@ print_valid_every = 5000
 print_loss_every = 100
 
 # Declare stop words
-#stops = stopwords.words('english')
-stops = []
+stops = stopwords.words('english')
+#stops = []
 
 # We pick a few test words for validation.
 valid_words = ['love', 'hate', 'happy', 'sad', 'man', 'woman']
@@ -64,7 +64,7 @@ valid_words = ['love', 'hate', 'happy', 'sad', 'man', 'woman']
 
 # Load the movie review data
 print('Loading Data')
-texts, target = text_helpers.load_movie_data(data_folder_name)
+texts, target = text_helpers.load_movie_data()
 
 # Normalize text
 print('Normalizing Text Data')

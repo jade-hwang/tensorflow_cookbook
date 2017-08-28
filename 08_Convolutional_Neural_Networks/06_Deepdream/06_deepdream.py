@@ -30,7 +30,7 @@ ops.reset_default_graph()
 graph = tf.Graph()
 sess = tf.InteractiveSession(graph=graph)
 
-os.chdir('/home/nick/Documents/tensorflow/inception-v1-model/')
+#os.chdir('/home/nick/Documents/tensorflow/inception-v1-model/')
 
 # Model location
 model_fn = 'tensorflow_inception_graph.pb'

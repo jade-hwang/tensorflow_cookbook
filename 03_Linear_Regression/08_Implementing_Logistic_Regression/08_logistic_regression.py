@@ -53,7 +53,7 @@ with open(birth_weight_file, newline='') as csvfile:
 birth_data = [[float(x) for x in row] for row in birth_data]
 
 # Pull out target variable
-y_vals = np.array([x[1] for x in birth_data])
+y_vals = np.array([x[0] for x in birth_data])
 # Pull out predictor variables (not id, not target, and not birthweight)
 x_vals = np.array([x[2:9] for x in birth_data])
 

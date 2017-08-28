@@ -45,7 +45,7 @@ demming_denominator = tf.sqrt(tf.add(tf.square(A),1))
 loss = tf.reduce_mean(tf.truediv(demming_numerator, demming_denominator))
 
 # Declare optimizer
-my_opt = tf.train.GradientDescentOptimizer(0.1)
+my_opt = tf.train.GradientDescentOptimizer(0.005)
 train_step = my_opt.minimize(loss)
 
 # Initialize variables
@@ -54,7 +54,7 @@ sess.run(init)
 
 # Training loop
 loss_vec = []
-for i in range(250):
+for i in range(500):
     rand_index = np.random.choice(len(x_vals), size=batch_size)
     rand_x = np.transpose([x_vals[rand_index]])
     rand_y = np.transpose([y_vals[rand_index]])
@@ -78,8 +78,8 @@ for i in x_vals:
 plt.plot(x_vals, y_vals, 'o', label='Data Points')
 plt.plot(x_vals, best_fit, 'r-', label='Best fit line', linewidth=3)
 plt.legend(loc='upper left')
-plt.title('Sepal Length vs Pedal Width')
-plt.xlabel('Pedal Width')
+plt.title('Sepal Length vs Petal Width')
+plt.xlabel('Petal Width')
 plt.ylabel('Sepal Length')
 plt.show()
 

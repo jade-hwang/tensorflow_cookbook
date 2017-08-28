@@ -55,3 +55,21 @@ t_chars = list(''.join(truth_word_vec))
 t3 = tf.SparseTensor(t_indices, t_chars, [num_h_words,1,1])
 
 print(sess.run(tf.edit_distance(h3, t3, normalize=True)))
+
+
+def create_sparse_vec(word_list):
+    num_words = len(word_list)
+    indices = [[xi, 0, yi] for xi,x in enumerate(word_list) for yi,y in enumerate(x)]
+    chars = list(''.join(word_list))
+    return(tf.SparseTensorValue(indices, chars, [num_words,1,1]))
+
+hyp_string_sparse = create_sparse_vec(hypothesis_words)
+truth_string_sparse = create_sparse_vec(truth_word*len(hypothesis_words))
+
+hyp_input = tf.sparse_placeholder(dtype=tf.string)
+truth_input = tf.sparse_placeholder(dtype=tf.string)
+
+edit_distances = tf.edit_distance(hyp_input, truth_input, normalize=True)
+feed_dict = {hyp_input: hyp_string_sparse, truth_input: truth_string_sparse}
+
+print(sess.run(edit_distances, feed_dict=feed_dict))

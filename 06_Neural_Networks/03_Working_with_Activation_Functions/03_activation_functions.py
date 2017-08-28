@@ -51,7 +51,9 @@ train_step_relu = my_opt.minimize(loss2)
 print('\nOptimizing Sigmoid AND Relu Output to 0.75')
 loss_vec_sigmoid = []
 loss_vec_relu = []
-for i in range(500):
+activation_sigmoid = []
+activation_relu = []
+for i in range(750):
     rand_indices = np.random.choice(len(x), size=batch_size)
     x_vals = np.transpose([x[rand_indices]])
     sess.run(train_step_sigmoid, feed_dict={x_data: x_vals})
@@ -62,13 +64,25 @@ for i in range(500):
     
     sigmoid_output = np.mean(sess.run(sigmoid_activation, feed_dict={x_data: x_vals}))
     relu_output = np.mean(sess.run(relu_activation, feed_dict={x_data: x_vals}))
-    
+
+    activation_sigmoid.append(sigmoid_output)
+    activation_relu.append(relu_output)
+
     if i%50==0:
         print('sigmoid = ' + str(np.mean(sigmoid_output)) + ' relu = ' + str(np.mean(relu_output)))
-        
+
+# Plot activations
+plt.plot(activation_sigmoid, 'k-', label='Sigmoid Activation')
+plt.plot(activation_relu, 'r--', label='Relu Activation')
+plt.ylim([0, 1.0])
+plt.title('Activation Outputs')
+plt.xlabel('Generation')
+plt.ylabel('Outputs')
+plt.legend(loc='upper right')
+plt.show()
 # Plot the loss
-plt.plot(loss_vec_sigmoid, 'k-', label='Sigmoid Activation')
-plt.plot(loss_vec_relu, 'r--', label='Relu Activation')
+plt.plot(loss_vec_sigmoid, 'k-', label='Sigmoid Loss')
+plt.plot(loss_vec_relu, 'r--', label='Relu Loss')
 plt.ylim([0, 1.0])
 plt.title('Loss per Generation')
 plt.xlabel('Generation')

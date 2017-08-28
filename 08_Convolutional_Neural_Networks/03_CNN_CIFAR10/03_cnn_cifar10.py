@@ -41,7 +41,7 @@ extract_folder = 'cifar-10-batches-bin'
 
 # Exponential Learning Rate Decay Params
 learning_rate = 0.1
-lr_decay = 0.1
+lr_decay = 0.9
 num_gens_to_wait = 250.
 
 # Extract model parameters

@@ -77,6 +77,7 @@ text_lengths = [len(x.split()) for x in texts]
 text_lengths = [x for x in text_lengths if x < 50]
 plt.hist(text_lengths, bins=25)
 plt.title('Histogram of # of Words in Texts')
+plt.show()
 
 # Choose max text word length at 25
 sentence_size = 25

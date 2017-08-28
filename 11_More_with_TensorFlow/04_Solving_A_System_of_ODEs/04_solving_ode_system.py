@@ -65,3 +65,5 @@ plt.plot(prey_values)
 plt.plot(predator_values)
 plt.legend(['Prey', 'Predator'], loc='upper right')
 plt.show()
+
+print('Training Accuracy: {}'.format(accuracy))

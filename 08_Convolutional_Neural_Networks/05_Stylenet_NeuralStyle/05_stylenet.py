@@ -169,7 +169,7 @@ train_step = optimizer.minimize(loss)
 # Initialize Variables and start Training
 sess.run(tf.global_variables_initializer())
 for i in range(generations):
-    
+
     sess.run(train_step)
 
     # Print update and save temporary output

@@ -33,7 +33,7 @@ ops.reset_default_graph()
 pop_size = 100
 features = 50
 selection = 0.2
-mutation = 1./pop_size
+mutation = 1./features
 generations = 200
 num_parents = int(pop_size*selection)
 num_children = pop_size - num_parents
