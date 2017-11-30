@@ -28,6 +28,7 @@ local_repository = 'temp'
 
 if tf.__version__[0]<'1':
     from tensorflow.models.rnn.translate import seq2seq_model
+    from tensorflow.models.rnn.translate import data_utils
 else:
     #models can be retrieved from github: https://github.com/tensorflow/models.git
     #put the models dir under python search lib path.
@@ -36,9 +37,10 @@ else:
         from git import Repo
         tf_model_repository = 'https://github.com/tensorflow/models'
         Repo.clone_from(tf_model_repository, local_repository)
-        sys.path.insert(0, 'temp/tutorials/rnn/translate/')
-        import seq2seq_model as seq2seq_model
-        import data_utils as data_utils
+
+    sys.path.insert(0, 'temp/tutorials/rnn/translate/')
+    import seq2seq_model as seq2seq_model
+    import data_utils as data_utils
 
 # Start a session
 sess = tf.Session()

@@ -75,6 +75,7 @@ def showarray(a, fmt='jpeg'):
     PIL.Image.fromarray(a).save(f, fmt)
     # Show image
     plt.imshow(a)
+    plt.show()
 
 
 def T(layer):
@@ -181,7 +182,7 @@ if __name__=="__main__":
     resize = tffunc(np.float32, np.int32)(resize)
     
     # Open image
-    img0 = PIL.Image.open('book_cover.jpg')
+    img0 = PIL.Image.open('../images/book_cover.jpg')
     img0 = np.float32(img0)
     # Show Original Image
     showarray(img0/255.0)

@@ -35,7 +35,8 @@ style_image_weight = 500.0
 regularization_weight = 100
 learning_rate = 0.001
 generations = 5000
-output_generations = 250
+#output_generations = 250
+output_generations = 20
 beta1 = 0.9
 beta2 = 0.999
 

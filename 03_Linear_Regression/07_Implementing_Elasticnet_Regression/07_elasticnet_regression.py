@@ -39,7 +39,7 @@ y_vals = np.array([y[0] for y in iris.data])
 ###
 
 # make results reproducible
-seed = 13
+seed = 1
 np.random.seed(seed)
 tf.set_random_seed(seed)
 

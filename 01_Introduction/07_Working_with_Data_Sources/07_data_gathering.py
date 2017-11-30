@@ -6,7 +6,6 @@
 
 # Data Gathering
 import matplotlib.pyplot as plt
-import numpy as np
 import tensorflow as tf
 from tensorflow.python.framework import ops
 ops.reset_default_graph()
@@ -68,7 +67,6 @@ print(y_train[0,]) # this is a frog
 
 # Plot the 0-th image (a frog)
 from PIL import Image
-%matplotlib inline
 img = Image.fromarray(X_train[0,:,:,:])
 plt.imshow(img)
 

@@ -40,7 +40,7 @@ prediction_grid = tf.placeholder(shape=[None, 2], dtype=tf.float32)
 b = tf.Variable(tf.random_normal(shape=[1,batch_size]))
 
 # Gaussian (RBF) kernel
-gamma = tf.constant(-100.0)
+gamma = tf.constant(-10.0)
 sq_dists = tf.multiply(2., tf.matmul(x_data, tf.transpose(x_data)))
 my_kernel = tf.exp(tf.multiply(gamma, tf.abs(sq_dists)))
 
@@ -77,7 +77,7 @@ for i in range(300):
     rand_x = x_vals[rand_index]
     rand_y = np.transpose([y_vals[rand_index]])
     sess.run(train_step, feed_dict={x_data: rand_x, y_target: rand_y})
-    
+
     temp_loss = sess.run(loss, feed_dict={x_data: rand_x, y_target: rand_y})
     loss_vec.append(temp_loss)
     
