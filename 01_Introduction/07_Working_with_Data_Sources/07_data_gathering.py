@@ -63,7 +63,7 @@ print(mnist.train.labels[1,:])
 
 print(X_train.shape)
 print(y_train.shape)
-print(y_train[0,]) # this is a frog
+print(y_train[0,])  # this is a frog
 
 # Plot the 0-th image (a frog)
 from PIL import Image
