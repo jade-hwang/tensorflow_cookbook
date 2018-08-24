@@ -23,8 +23,8 @@ from tensorflow.python.framework import ops
 ops.reset_default_graph()
 
 # Image Files
-original_image_file = 'images/book_cover.jpg'
-style_image_file = 'images/starry_night.jpg'
+original_image_file = '../images/book_cover.jpg'
+style_image_file = '../images/starry_night.jpg'
 
 # Saved VGG Network path under the current project dir.
 vgg_path = 'imagenet-vgg-verydeep-19.mat'
@@ -34,8 +34,8 @@ original_image_weight = 5.0
 style_image_weight = 500.0
 regularization_weight = 100
 learning_rate = 10
-generations = 100
-output_generations = 25
+generations = 2000
+output_generations = 100
 beta1 = 0.9
 beta2 = 0.999
 
@@ -199,4 +199,4 @@ with tf.Graph().as_default():
         image_eval = init_image.eval()
         best_image_add_mean = image_eval.reshape(shape[1:]) + normalization_mean
         output_file = 'final_output.jpg'
-        scipy.misc.imsave(output_file, best_image_add_mean)
+        imageio.imwrite(output_file, best_image_add_mean)

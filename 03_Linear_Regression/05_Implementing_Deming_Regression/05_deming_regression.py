@@ -49,7 +49,7 @@ demming_denominator = tf.sqrt(tf.add(tf.square(A),1))
 loss = tf.reduce_mean(tf.truediv(demming_numerator, demming_denominator))
 
 # Declare optimizer
-my_opt = tf.train.GradientDescentOptimizer(0.15)
+my_opt = tf.train.GradientDescentOptimizer(0.1)
 train_step = my_opt.minimize(loss)
 
 # Initialize variables

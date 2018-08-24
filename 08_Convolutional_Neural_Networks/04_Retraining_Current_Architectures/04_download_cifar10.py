@@ -13,6 +13,7 @@ import _pickle as cPickle
 import numpy as np
 import urllib.request
 import scipy.misc
+import imageio
 from tensorflow.python.framework import ops
 ops.reset_default_graph()
 
@@ -70,7 +71,7 @@ def save_images_from_dict(image_dict, folder='data_dir'):
         image_array.resize([3, 32, 32])
         # Save image
         output_location = os.path.join(folder_path, filename)
-        scipy.misc.imsave(output_location,image_array.transpose())
+        imageio.imwrite(output_location,image_array.transpose())
 
 # Sort train images
 for file in train_names:
